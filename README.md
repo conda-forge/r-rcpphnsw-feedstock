@@ -3,7 +3,7 @@ About r-rcpphnsw
 
 Home: https://github.com/jlmelville/rcpphnsw
 
-Package license: GPL-3
+Package license: GPL-3.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rcpphnsw-feedstock/blob/main/LICENSE.txt)
 

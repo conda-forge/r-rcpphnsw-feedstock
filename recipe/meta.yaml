@@ -1,4 +1,4 @@
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/RcppHNSW_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/RcppHNSW/RcppHNSW_{{ version }}.tar.gz
-  sha256: aa502dcaaa9859f3e0995649b425ea4fd2d390e510c2648416318c2e056d15e8
+  sha256: 4f0082154f77dcb7756d41cdbfe0f58316431b9027081321a27942f319097c74
 
 build:
   merge_build_host: true  # [win]
@@ -30,6 +30,7 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-rcpp >=0.11.3
@@ -45,10 +46,11 @@ test:
 
 about:
   home: https://github.com/jlmelville/rcpphnsw
-  license: GPL-3
+  license: GPL-3.0-or-later
   summary: "'Hnswlib' is a C++ library for Approximate Nearest Neighbors. This package provides a minimal R interface by relying on the 'Rcpp' package. See <https://github.com/nmslib/hnswlib> for more on 'hnswlib'. 'hnswlib' is released under Version 2.0 of the Apache License."
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
