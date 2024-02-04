@@ -1,4 +1,4 @@
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/RcppHNSW_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/RcppHNSW/RcppHNSW_{{ version }}.tar.gz
-  sha256: 8997ab6cfeaef701e9d0fda57825a37caf67aedf38bd0b8174c7894903796969
+  sha256: a5a6ed00a84143aa62aa67df66fcccae657d5db0a1f9bb4b955a8e94c2ff580f
 
 build:
   merge_build_host: true  # [win]
